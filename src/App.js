@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Converter from './components/Converter';
+import Rates from './components/Rates';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="app-container">
+            <header className="header">Конвертер валют</header>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/converter" element={<Converter />} />
+                    <Route path="/rates" element={<Rates />} />
+                </Routes>
+            </Router>
+            <footer className="footer">
+                Data provided by ExchangeRate API | © 2024 Currency Converter
+            </footer>
+        </div>
+    );
 }
 
 export default App;
